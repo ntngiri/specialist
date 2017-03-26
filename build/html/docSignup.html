@@ -1,0 +1,172 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5 text-center">
+                    <h3>Welcome to the network</h3>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
+                    <div class="signUpTimeline">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-7">
+                <form novalidate class="docFrm" ng-show="firstForm">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>First Name</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="fname" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Last Name</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="lname" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Email Id</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="email" type="email" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Confirm Email</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="confEmail" type="email" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Password</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="pass" type="password" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Repeat Password</label>
+                            </div>
+                            <div>
+                                <input name="usr" ng-model="confPass" type="password" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <button>Cancel</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button ng-click="bringSecondForm()">Next</button>
+                        </div>
+                    </div>
+                </form>
+                <form ng-show="secForm">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Address Line 1</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Address Line 2</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Pin Code</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>City</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>State</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Clinic Name</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Mobile Number</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Clinic Fee</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Home Visit</label>
+                            </div>
+                            <div>
+                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+</section>
