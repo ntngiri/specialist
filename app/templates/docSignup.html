@@ -19,14 +19,18 @@
             </div>
             <div class="col-sm-3"></div>
             <div class="col-sm-7">
-                <form novalidate class="docFrm" ng-show="firstForm">
+                <form class="docFrm" ng-show="firstForm" name="firstForm" ng-submit="bringSecondForm(firstForm.$valid)" novalidate>
+                    <div class="row" ng-show="err_msg">
+                        <p class="help-block"><i>Please provide your required details.</i></p>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div>
                                 <label for='usr'>First Name</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="fname" type="text" class="form-control" placeholder="First Name">
+                                <input name="firstName" ng-model="fname" type="text" class="form-control" placeholder="First Name" required>
+                                <p ng-show="firstForm.firstName.$invalid && !firstForm.firstName.$pristine" class="help-block">Your First name is required.</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -34,7 +38,8 @@
                                 <label for='usr'>Last Name</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="lname" type="text" class="form-control" placeholder="First Name">
+                                <input name="lastName" ng-model="lname" type="text" class="form-control" placeholder="Last Name" required>
+                                <p ng-show="firstForm.lastName.$invalid && !firstForm.lastName.$pristine" class="help-block">Your Last name is required.</p>
                             </div>
                         </div>
                     </div>
@@ -44,16 +49,24 @@
                                 <label for='usr'>Email Id</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="email" type="email" class="form-control" placeholder="First Name">
+                                <input name="email" ng-model="email" type="email" class="form-control" placeholder="Enter mail id" required>
+                                <p ng-show="firstForm.email.$invalid && !firstForm.email.$pristine" class="help-block">Enter a valid email.</p>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-12">
                             <div>
                                 <label for='usr'>Confirm Email</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="confEmail" type="email" class="form-control" placeholder="First Name" ng-blur="checkEmailValidity()">
+                                <input name="usr" ng-model="confEmail" type="email" class="form-control" placeholder="Re-enter mail id" ng-blur="checkEmailPwdValidity('email')">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p ng-show="email_err" class="help-block">Email did not match</p>
                         </div>
                     </div>
                     <div class="row">
@@ -62,7 +75,7 @@
                                 <label for='usr'>Password</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="pass" type="password" class="form-control" placeholder="First Name">
+                                <input name="password" ng-model="pass" type="password" class="form-control" placeholder="Enter Password" ng-minlength="8" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -70,27 +83,37 @@
                                 <label for='usr'>Repeat Password</label>
                             </div>
                             <div>
-                                <input name="usr" ng-model="confPass" type="password" class="form-control" placeholder="First Name">
+                                <input name="usr" ng-model="confPass" type="password" class="form-control" placeholder="Re-enter password" ng-blur="checkEmailPwdValidity('pwd')">
                             </div>
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-sm-12">
+                            <p ng-show="pass_err" class="help-block">Password did not match</p>
+                            <p ng-show="firstForm.password.$error.minlength" class="help-block">Password length must be minimum 8 characters long.</p>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-sm-6 text-center">
-                            <button>Cancel</button>
+                            <button class="login-button" ui-sref="doctorPortal">Cancel</button>
                         </div>
                         <div class="col-sm-6 text-center">
-                            <button ng-click="bringSecondForm()">Next</button>
+                            <button class="login-button" type="submit">Next</button>
                         </div>
                     </div>
                 </form>
-                <form ng-show="secForm">
+                <form name="secForm" class="docFrm" ng-show="secondForm" ng-submit="sendSignupDoc(secForm.$valid)" novalidate>
+                    <div class="row" ng-show="err_msg">
+                        <p class="help-block"><i>Please complete the form.</i></p>
+                    </div>
                     <div class="row">
                         <div class="col-sm-12">
                             <div>
                                 <label for='usr'>Address Line 1</label>
                             </div>
                             <div>
-                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                                <input name="address" ng-model="address1" type="text" class="form-control" placeholder="Enter Flat/House no" required>
+                                <p ng-show="secForm.address.$invalid && !secForm.address.$pristine" class="help-block">Your address is required.</p>
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -98,7 +121,7 @@
                                 <label for='usr'>Address Line 2</label>
                             </div>
                             <div>
-                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                                <input name="usr" ng-model="address2" type="text" class="form-control" placeholder="Enter Street name">
                             </div>
                         </div>
                     </div>
@@ -108,7 +131,19 @@
                                 <label for='usr'>Pin Code</label>
                             </div>
                             <div>
-                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                                <input name="pinCode" ng-model="pinCode" type="Number" class="form-control" placeholder="Pincode">
+                                <!-- <div ng-messages="secForm.pinCode.$error">
+                                    <p ng-message="pattern" class="help-block">Enter a valid pincode.</p>
+                                </div>   -->
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Country</label>
+                            </div>
+                            <div>
+                                <input name="country" ng-model="country" type="text" class="form-control" placeholder="Country" required>
+                                <p ng-show="secForm.country.$invalid && !secForm.country.$pristine" class="help-block">Country is required.</p>
                             </div>
                         </div>
                     </div>
@@ -118,7 +153,8 @@
                                 <label for='usr'>City</label>
                             </div>
                             <div>
-                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                                <input name="city" ng-model="city" type="text" class="form-control" placeholder="City" required>
+                                <p ng-show="secForm.city.$invalid && !secForm.city.$pristine" class="help-block">City is required.</p>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -126,7 +162,8 @@
                                 <label for='usr'>State</label>
                             </div>
                             <div>
-                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                                <input name="state" ng-model="state" type="text" class="form-control" placeholder="State" required>
+                                <p ng-show="secForm.state.$invalid && !secForm.state.$pristine" class="help-block">State is required.</p>
                             </div>
                         </div>
                     </div>
@@ -136,7 +173,7 @@
                                 <label for='usr'>Clinic Name</label>
                             </div>
                             <div>
-                                <input name="usr" type="text" class="form-control" placeholder="First Name">
+                                <input name="usr" ng-model="clinicName" type="text" class="form-control" placeholder="Enter your name of center">
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -144,7 +181,8 @@
                                 <label for='usr'>Mobile Number</label>
                             </div>
                             <div>
-                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                                <input name="mobileNo" ng-model="mobileNo" type="Number" class="form-control" placeholder="Enter your contact number">
+                                <!-- <p ng-show="secForm.mobileNo.$error.pattern" class="help-block">Must be a valid 10 digit phone number.</p> -->
                             </div>
                         </div>
                     </div>
@@ -154,7 +192,7 @@
                                 <label for='usr'>Clinic Fee</label>
                             </div>
                             <div>
-                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                                <input name="usr" ng-model="clinicFee" type="Number" class="form-control" placeholder="Consultation Fee">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -162,8 +200,13 @@
                                 <label for='usr'>Home Visit</label>
                             </div>
                             <div>
-                                <input name="usr" type="Number" class="form-control" placeholder="First Name">
+                                <input name="usr" ng-model="homeVisit" type="Number" class="form-control" placeholder="Home visit Fee">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <button class="login-button" type="submit">SUBMIT</button>
                         </div>
                     </div>
                 </form>
