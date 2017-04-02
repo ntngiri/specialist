@@ -58,8 +58,12 @@ specialist.controller('docSignupCtrl', ['$scope','$state','dataService', functio
 			signUpData.clinic_name = $scope.clinicName;
 			signUpData.fee = $scope.clinicFee;
 			signUpData.hv_fee = $scope.homeVisit;
-			dataService.signUpDoctor(signUpData);
-			$state.go('doctorProfile.dashboard');//to be removed
+			dataService.signUpDoctor(signUpData).then(function(resp){
+				if(resp){
+					$state.go('doctorProfile.dashboard');
+				}
+			})
+			//to be removed
 			// dataService.signUpDoctor(signUpData).then(function(resp){
 			// 	$state.go('doctorProfile.dashboard');
 			// });

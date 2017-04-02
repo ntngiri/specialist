@@ -49,5 +49,9 @@ var specialist = angular.module('specialist', ['ui.router'])
         url: '/profile',
         templateUrl: './build/html/docUserProfile.html'
     })
+    .state('doctor',{
+    	url:'/doctor',
+    	templateUrl:'./build/html/docBooking.html'
+    })
 	$locationProvider.html5Mode(true);
 }]);

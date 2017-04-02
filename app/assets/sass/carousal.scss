@@ -13,6 +13,13 @@ body {
 h1,h2,h3 {
         color: $green_medium;
     }
+
+.navbar.navbar-default{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+}
 .imageCarousal {
     width: 100%;
     #myCarousel,

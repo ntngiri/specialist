@@ -12,7 +12,7 @@
 		private $dbname = 'specialist';
 		
 		public function connect(){
-			$pdoString = "mysql:host=$this->dbhost;dbname=$this->dbname;port=8889";
+			$pdoString = "mysql:host=$this->dbhost;dbname=$this->dbname;port=3306";
 			$pdo  = new PDO($pdoString,$this->dbuser,$this->pass);
 			// $pdo = new PDO("mysql:host=$this->dbhost;dbname=$this->dbname",
    //      	$this->dbuser, $this->pass);

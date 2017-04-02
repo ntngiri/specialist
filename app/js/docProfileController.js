@@ -4,8 +4,10 @@ specialist.controller('docProfileCtrl', ['$scope', 'dataService', function($scop
     //     console.log(data);
     //     $scope.doctorData = data[0];
     // });
-    $scope.docJson = dataService.getDoctorData();
-    console.log('docprofile',docJson);
+    $scope.docJson;
+    dataService.getDoctorData('14').then(function(resp){
+        $scope.docJson = resp[0];
+    });
 
     $scope.mode = 'week';
     $scope.eventSource = createRandomEvents();

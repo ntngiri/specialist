@@ -79,6 +79,8 @@ $app->post('/doctor/add',function($request,$response,$arga){
         $stmt->bindParam(':clinic_name',$clinic_name);
 
     	$stmt->execute();
+        $temp = $db->lastInsertId();
+        echo $temp;
     	$this->logger->addInfo("New Doctor Added");
     } catch(PDOException $e){
     	echo '{"error":{"text":'.$e->getMessage().'}}';
