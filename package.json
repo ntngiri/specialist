@@ -4,6 +4,7 @@
   "description": "Lets build it",
   "author": "Nitin Giri",
   "dependencies": {
+    "angular-ui-router": "^0.4.2",
     "bootstrap": "^3.3.7",
     "install": "^0.8.7",
     "npm": "^4.3.0"

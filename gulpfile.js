@@ -28,7 +28,6 @@ gulp.task('scripts', function() {
   return gulp.src(paths.scripts)
     .pipe(sourcemaps.init())
       .pipe(babel())
-      .pipe(uglify())
       .pipe(concat('all.min.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('build/js'));
@@ -43,6 +42,7 @@ gulp.task('css', function(){
   return gulp.src('app/assets/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(minifyCSS())
+    .pipe(concat('all.min.css'))
     .pipe(gulp.dest('build/css'))
     .pipe(connect.reload());
 });

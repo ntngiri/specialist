@@ -1,31 +1,11 @@
 <?php
 // Routes
 require __DIR__ . '/dependencies.php';
+//require __DIR__ . '/App/Mail/Mailer.php';
 
-// $app->get('/[{name}]', function ($request, $response, $args) {
-//     // Sample log message
-//     $this->logger->info("Slim-Skeleton '/' route");
-
-//     // Render index view
-//     return $this->renderer->render($response, 'index.phtml', $args);
-//});
-
-// $app->get('/api/customer', function ($request, $response, $args) {
-//     // Sample log message
-//     $this->logger->info("Slim-Skeleton '/' route");
-//     $this->logger->addInfo("Something interesting happened");
-
-//     echo 'CUSTOMERS';
-//});
-
-/**
- * API to get all list of doctors
- */
 $app->get('/doctor/list',function($request,$response,$arga){
 	$this->logger->info("/doctor/list");
-    
-
-    $sql = "SELECT * FROM doctor_booking";
+    $sql = "SELECT * FROM doctor";
     try{
     	$db = new db();
     	$db = $db->connect();
@@ -48,7 +28,7 @@ $app->get('/doctor/{id}',function($request,$response,$arga){
 	$id = $request->getAttribute('id');
     
 
-    $sql = "SELECT * FROM doctor_booking WHERE id = $id";
+    $sql = "SELECT * FROM doctor WHERE id = $id";
     try{
     	$db = new db();
     	$db = $db->connect();
@@ -77,10 +57,11 @@ $app->post('/doctor/add',function($request,$response,$arga){
 	$city = $request->getParam('city');
 	$state = $request->getParam('state');
 	$pin = $request->getParam('pin');
+    $clinic_name = $request->getParam('clinic_name');
 
 	$this->logger->info("Specialist '/' Add");
     
-    $sql = "INSERT INTO doctor_booking (name,address,hv_fee,fee,email,mobile,city,state,pin) VALUES (:name,:address,:hv_fee,:fee,:email,:mob,:city,:state,:pin)";
+    $sql = "INSERT INTO doctor (name,address,hv_fee,fee,email,mobile,city,state,pin,clinic_name) VALUES (:name,:address,:hv_fee,:fee,:email,:mob,:city,:state,:pin,:clinic_name)";
     try{
     	$db = new db();
     	$db = $db->connect();
@@ -95,6 +76,7 @@ $app->post('/doctor/add',function($request,$response,$arga){
     	$stmt->bindParam(':city',$city);
     	$stmt->bindParam(':state',$state);
     	$stmt->bindParam(':pin',$pin);
+        $stmt->bindParam(':clinic_name',$clinic_name);
 
     	$stmt->execute();
     	$this->logger->addInfo("New Doctor Added");
@@ -107,7 +89,7 @@ $app->post('/doctor/add',function($request,$response,$arga){
 $app->get('doctor/email/{email}',function($request,$response,$arga){
     $email = $request->getAttribute('email');
     $this->logger->info("Specialist '/' check doctor existence");
-    $sql = "SELECT * FROM doctor_booking WHERE email = $email";
+    $sql = "SELECT * FROM doctor WHERE email = $email";
     try{
         $db = new db();
         $db = $db->connect();
