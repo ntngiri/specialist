@@ -235,7 +235,7 @@
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: './build/html/calender.html',
+            templateUrl: './specialist/build/html/calender.html',
             scope: {
                 calendarMode: '=',
                 rangeChanged: '&',
@@ -266,7 +266,7 @@
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: './build/html/month.html',
+            templateUrl: './specialist/build/html/month.html',
             require: ['^calendar', '?^ngModel'],
             link: function (scope, element, attrs, ctrls) {
                 var ctrl = ctrls[0],
@@ -543,7 +543,7 @@
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: './build/html/week.html',
+            templateUrl: './specialist/build/html/week.html',
             require: '^calendar',
             link: function (scope, element, attrs, ctrl) {
                 scope.formatWeekViewDayHeader = ctrl.formatWeekViewDayHeader;
@@ -841,7 +841,7 @@
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: './build/html/day.html',
+            templateUrl: './specialist/build/html/day.html',
             require: '^calendar',
             link: function (scope, element, attrs, ctrl) {
                 scope.formatHourColumn = ctrl.formatHourColumn;
