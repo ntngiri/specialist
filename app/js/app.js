@@ -4,55 +4,55 @@ var specialist = angular.module('specialist', ['ui.router'])
 	$stateProvider
 	.state('home', {
 		url:'/',
-		templateUrl: './build/html/main.html',
+		templateUrl: './specialist/build/html/main.html',
 		controller: 'mainController'
 	})
 	.state('search', {
 		url:'/search',
-		templateUrl: './build/html/search.html',
+		templateUrl: './specialist/build/html/search.html',
 		controller: 'SearchCtrl'
 	})
 	.state('doctorPortal', {
 		url:'/doctorPortal',
-		templateUrl: './build/html/doctorPortal.html',
+		templateUrl: './specialist/build/html/doctorPortal.html',
 		controller: 'doctorPortalCtrl'
 	})
 	.state('ques', {
 		url:'/ques',
-		templateUrl: './build/html/quesans.html',
+		templateUrl: './specialist/build/html/quesans.html',
 		//controller: 'QuesCtrl'
 	})
 	.state('docSignup', {
 		url:'/docSignup',
-		templateUrl: './build/html/docSignup.html',
+		templateUrl: './specialist/build/html/docSignup.html',
 		controller: 'docSignupCtrl'
 	})
 	.state('doctorProfile', {
 		url:'/doctorProfile',
-		templateUrl: './build/html/docProfile.html',
+		templateUrl: './specialist/build/html/docProfile.html',
 		controller: 'docProfileCtrl',
 		abstract: true
 	})
 	.state('doctorProfile.dashboard', {
         url: '',
-        templateUrl: './build/html/docprofileDashboard.html'
+        templateUrl: './specialist/build/html/docprofileDashboard.html'
     })
     .state('doctorProfile.faq', {
         url: '/faq',
-        templateUrl: './build/html/docFaq.html'
+        templateUrl: './specialist/build/html/docFaq.html'
     })
     .state('doctorProfile.plans', {
         url: '/plans',
-        templateUrl: './build/html/docPlans.html'
+        templateUrl: './specialist/build/html/docPlans.html'
     })
     .state('doctorProfile.profile', {
         url: '/profile',
-        templateUrl: './build/html/docUserProfile.html',
+        templateUrl: './specialist/build/html/docUserProfile.html',
 		controller: 'docProfileCtrl'
     })
     .state('doctor',{
     	url:'/doctor',
-    	templateUrl:'./build/html/docBooking.html'
+    	templateUrl:'./specialist/build/html/docBooking.html'
     })
 	$locationProvider.html5Mode(true);
 }]);
