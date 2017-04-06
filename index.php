@@ -35,7 +35,7 @@
     </header>
     <!-- <ng-view></ng-view> -->
     <ui-view></ui-view>
-<footer>
+<footer class="mtb20">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-8">
