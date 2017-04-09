@@ -294,3 +294,5 @@
 [2017-04-06 23:25:53] my_logger.INFO: New Doctor Added [] []
 [2017-04-06 23:26:13] my_logger.INFO: /doctor/list [] []
 [2017-04-06 23:26:13] my_logger.INFO: Doctor List API Success [] []
+[2017-04-06 23:35:17] my_logger.INFO: /doctor/list [] []
+[2017-04-06 23:35:17] my_logger.INFO: Doctor List API Success [] []
