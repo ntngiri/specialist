@@ -7,8 +7,8 @@
     <base href="/">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/build/css/all.min.css">
+    <link rel="stylesheet" href="./specialist/node_modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./specialist/build/css/all.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <!-- <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script> -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
@@ -70,7 +70,7 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="./build/js/all.min.js"></script>
+    <script type="text/javascript" src="./specialist/build/js/all.min.js"></script>
 </body>
 
 </html>
