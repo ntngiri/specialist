@@ -12,6 +12,33 @@ specialist.controller('docProfileCtrl', ['$scope', 'dataService', function($scop
         console.log('doctor data', $scope.docJson);
     });
 
+
+    //$('form').on('submit', uploadFiles);
+
+    // Catch the form submit and upload the files
+    $scope.uploadFiles = function(event)
+    {
+      event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        // START A LOADING SPINNER HERE
+
+        // Create a formdata object and add the files
+        var data = new FormData();
+        angular.forEach(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+
+
+        dataService.uploadProfilePic(data).then(function(){
+
+        })
+    }
+
+
+
+
     $scope.showEditForm = function(tabId){
         if (tabId == '1'){
             $scope.editProfile2 = false;

@@ -1,0 +1,124 @@
+<section>
+    <img src="build/images/map.png" style="width: 100%">
+</section>
+<section class="searchBox mtb20">
+    <div class="container ">
+        <div class="col-xs-12 col-md-3 nopadding">
+            <div class="dropdown">
+                <droope tuplecount="10" option="options" data="data" droope-callback="onClickFunc(item)" api="api"></droope>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3 nopadding">
+            <input type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon1">
+        </div>
+        <div class="col-xs-12 col-md-4 nopadding">
+            <input type="text" class="form-control" placeholder="Specialist" aria-describedby="basic-addon1">
+        </div>
+        <div class="col-xs-12 col-md-2 nopadding">
+            <button type="button" class="btn btn-default">Search</button>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 searchFilters">
+                <div>
+                    Location
+                    <div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Noida</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Gurgaon</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Delhi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Faridabad</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Ghaziabad</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mtb20">
+                    Availability
+                </div>
+                <div class="mtb20">
+                    Clinic Fees
+                    <div>
+                        <input type="range" name="">
+                    </div>
+                </div>
+                <div class="mtb20">
+                    Home Visit Fees
+                    <div>
+                        <input type="range" name="">
+                    </div>
+                </div>
+                <div class="mtb20">
+                    Gender
+                    <div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Male</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="location">
+                            <label for="location">Female</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-7">
+                <div class="docTuple mtb20" ng-repeat="doc in doctorList">
+                    <div class="row ">
+                        <div class="col-md-2">
+                            <img src="build/images/download.jpeg" width="66px" style="border-radius: 50%">
+                        </div>
+                        <div class="col-md-7">
+                            <p class="head">{{::doc.name}}</p>
+                            <p class="address">{{::doc.address}}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <div>
+                                {{::doc.fee}} Rs
+                            </div>
+                            <div>
+                                Certified
+                            </div>
+                            <div>
+                                83% Suggested
+                            </div>
+                            <div><span class="glyphicon glyphicon-heart"></span>20 likes</div>
+                        </div>
+                    </div>
+                    <div class="row bookingRow">
+                        <div class="col-md-4 text-center">
+                            <a href="javascript:void(0)" ng-click="doctorBook()">Book Clinic Visit</a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="javascript:void(0)" ng-click="doctorBook()">Book Home Visit</a>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <a href="javascript:void(0)" ng-click="doctorBook()">Ask Question</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="callUs">
+                    <em class="callIc"></em>
+                    <span class="phnNo">1800528333</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

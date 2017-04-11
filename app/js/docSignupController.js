@@ -7,6 +7,14 @@ specialist.controller('docSignupCtrl', ['$scope','$state','dataService', functio
 	$scope.mobileRegEx = "/^[0-9]{10,10}$/;";
 	$scope.pinCodeRegEx = "/^[0-9]{6,6}$/;";
 	var signUpData = {};
+
+	$scope.checkusername = function(){
+		if(dataService.checkUserName($scope.username) == 1){
+			$scope.usernameExist = true;
+		}else{
+		    $scope.usernameExist = false;
+		}
+	}
 	$scope.checkEmailPwdValidity = function(value){
 		if(value == 'email'){
 			if($scope.email !== $scope.confEmail){

@@ -1,8 +1,9 @@
 specialist.factory('dataService', ['$http','$window', function($http,$window) {
 	var signUpDocObj = {};
+	var url = 'http://quickspecialist.com/specialist/specialistAPI/public/index.php';
     return {
         getFullDoctorList: function() {
-            return $http.get('http://0.0.0.0:8081/doctor/list').then(function(resp) {
+            return $http.get(url+'/doctor/list').then(function(resp) {
                 return resp.data;
             });
         },
@@ -10,7 +11,7 @@ specialist.factory('dataService', ['$http','$window', function($http,$window) {
 
         },
         signUpDoctor: function(obj) {
-            return $http.post('http://0.0.0.0:8081/doctor/add',obj).then(function(resp){
+            return $http.post(url+'/doctor/add',obj).then(function(resp){
                 setSession(resp);
             	return resp;
             })
@@ -29,9 +30,19 @@ specialist.factory('dataService', ['$http','$window', function($http,$window) {
             return $window.sessionStorage.getItem('user');
         },
         getDoctorData: function(id) {
-            return $http.get('http://0.0.0.0:8081/doctor/'+id).then(function(resp){
+            return $http.get(url+'/doctor/'+id).then(function(resp){
             	return resp.data;
             });
+        },
+        checkUserName:function(uname){
+             return $http.get(url+'/doctor/docUsername/'+uname).then(function(resp){
+                return resp;
+            });
+        },
+        uploadProfilePic:function(obj){
+            return $http.post(url+'/doctor/profilePic',obj).then(function(resp){
+                return resp;
+            })
         }
     };
 }])

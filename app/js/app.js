@@ -48,7 +48,7 @@ var specialist = angular.module('specialist', ['ui.router'])
     .state('doctorProfile.profile', {
         url: '/profile',
         templateUrl: './build/html/docUserProfile.html',
-		controller: 'docProfileCtrl'
+		//controller: 'docProfileCtrl'
     })
     .state('doctor',{
     	url:'/doctor',

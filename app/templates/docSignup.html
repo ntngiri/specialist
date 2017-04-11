@@ -49,8 +49,8 @@
                                 <label for='usr'>username</label>
                             </div>
                             <div>
-                                <input name="username" ng-model="username" type="text" class="form-control" placeholder="Enter username" required>
-                                <p ng-show="firstForm.username.$invalid && !firstForm.username.$pristine" class="help-block">username already exist.</p>
+                                <input name="username" ng-model="username" type="text" class="form-control" placeholder="Enter username" required ng-blur="checkusername()">
+                                <p ng-show="firstForm.username.$invalid && !firstForm.username.$pristine || usernameExist" class="help-block">username already exist.</p>
                             </div>
                         </div>
                     </div>

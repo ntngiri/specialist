@@ -1,7 +1,10 @@
 <?php
 // Routes
 require __DIR__ . '/dependencies.php';
-//require __DIR__ . '/App/Mail/Mailer.php';
+
+
+
+//Get API'S
 
 $app->get('/doctor/list',function($request,$response,$arga){
 	$this->logger->info("/doctor/list");
@@ -43,49 +46,33 @@ $app->get('/doctor/{id}',function($request,$response,$arga){
     }
 });
 
-/**
- * Add a New Doctor
- */
-$app->post('/doctor/add',function($request,$response,$arga){
-	$name = $request->getParam('name');
-	$address = $request->getParam('address');
-	$hv_fee = $request->getParam('hv_fee');
-	$fee = $request->getParam('fee');
-	$email = $request->getParam('email');
-	$mob = $request->getParam('mobile');
-	$city = $request->getParam('city');
-	$state = $request->getParam('state');
-	$pin = $request->getParam('pin');
-    $clinic_name = $request->getParam('clinic_name');
+$app->get('/doctor/docUsername/{username}',function($request,$response,$arga){
+    $username = $request->getAttribute('username');
+    $sql = "SELECT * FROM doctor WHERE username = '$username'";
 
-	$this->logger->info("Specialist '/' Add");
-    
-    $sql = "INSERT INTO doctor (name,address,hv_fee,fee,email,mobile,city,state,pin,clinic_name) VALUES (:name,:address,:hv_fee,:fee,:email,:mob,:city,:state,:pin,:clinic_name)";
     try{
-    	$db = new db();
-    	$db = $db->connect();
+        $db = new db();
+        $db = $db->connect();
 
-    	$stmt = $db->prepare($sql);
-    	$stmt->bindParam(':name',$name);
-    	$stmt->bindParam(':address',$address);
-    	$stmt->bindParam(':hv_fee',$hv_fee);
-    	$stmt->bindParam(':fee',$fee);
-    	$stmt->bindParam(':email',$email);
-    	$stmt->bindParam(':mob',$mob);
-    	$stmt->bindParam(':city',$city);
-    	$stmt->bindParam(':state',$state);
-    	$stmt->bindParam(':pin',$pin);
-        $stmt->bindParam(':clinic_name',$clinic_name);
-
-    	$stmt->execute();
-        $temp = $db->lastInsertId();
-        echo $temp;
-    	$this->logger->addInfo("New Doctor Added");
+        $stmt = $db->query($sql);
+        //$doctors = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        //echo json_encode($doctors);
+        $docCount = $stmt->rowCount();
+        if($docCount > 0){
+            echo 1;
+        }else{
+            echo 0;
+        }
+        exit();
     } catch(PDOException $e){
-    	echo '{"error":{"text":'.$e->getMessage().'}}';
-    	$this->logger->addInfo("New Doctor addition error ".$e->getMessage());
+        echo '{"error":{"text":'.$e->getMessage().'}}';
     }
+
+
+
 });
+
 
 $app->get('/doctor/email/{email}',function($request,$response,$arga){
     $email = $request->getAttribute('email');
@@ -132,12 +119,80 @@ $app->get('/doctorBooking/status/{id}',function($request,$response,$arga){
 
 });
 
-$app->post('/upload/ClinicPic',function($request,$response,$arga){
+
+/**
+ * Add a New Doctor
+ */
+$app->post('/doctor/add',function($request,$response,$arga){
+	$name = $request->getParam('name');
+	$address = $request->getParam('address');
+	$hv_fee = $request->getParam('hv_fee');
+	$fee = $request->getParam('fee');
+	$email = $request->getParam('email');
+	$mob = $request->getParam('mobile');
+	$city = $request->getParam('city');
+	$state = $request->getParam('state');
+	$pin = $request->getParam('pin');
+    $clinic_name = $request->getParam('clinic_name');
+    $username = $request->getParam('username');
+
+    //Verifcation 
+    if (empty($name) || empty($username) || empty($email) || empty($password) || empty($password1)){
+        $error = "Complete all fields";
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
+        $error = "Enter a  valid email";
+    }
+
+    if (strlen($password) <= 6){
+        $error = "Choose a password longer then 6 character";
+    }
+
+    if(!isset($error)){
+	$this->logger->info("Specialist '/' Add");
+    
+    $sql = "INSERT INTO doctor (name,address,hv_fee,fee,email,mobile,city,state,pin,clinic_name) VALUES (:name,:address,:hv_fee,:fee,:email,:mob,:city,:state,:pin,:clinic_name)";
+    try{
+    	$db = new db();
+    	$db = $db->connect();
+
+    	$stmt = $db->prepare($sql);
+    	$stmt->bindParam(':name',$name);
+    	$stmt->bindParam(':address',$address);
+    	$stmt->bindParam(':hv_fee',$hv_fee);
+    	$stmt->bindParam(':fee',$fee);
+    	$stmt->bindParam(':email',$email);
+    	$stmt->bindParam(':mob',$mob);
+    	$stmt->bindParam(':city',$city);
+    	$stmt->bindParam(':state',$state);
+    	$stmt->bindParam(':pin',$pin);
+        $stmt->bindParam(':clinic_name',$clinic_name);
+
+    	$stmt->execute();
+        $temp = $db->lastInsertId();
+        echo $temp;
+    	$this->logger->addInfo("New Doctor Added");
+    } catch(PDOException $e){
+    	echo '{"error":{"text":'.$e->getMessage().'}}';
+    	$this->logger->addInfo("New Doctor addition error ".$e->getMessage());
+    }
+    }else{
+        echo "error occured: ".$error;
+        exit();
+    }
+});
+
+
+
+$app->post('/upload/profilePic',function($request,$response,$arga){
     error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+    print_r($request);
+    die;
     
-    $name     = $_FILES['file']['name'];
+    $name     = $request->getParam('name');
     $tmpName  = $_FILES['file']['tmp_name'];
     $error    = $_FILES['file']['error'];
     $size     = $_FILES['file']['size'];
