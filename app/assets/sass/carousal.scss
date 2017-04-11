@@ -221,14 +221,36 @@ footer {
 }
 
 .buildImg{
-    background:url(../images/hp_manage_bg.png)
+    background-size: contain;
 }
+
 img{
-    width:100%;
+    width: 100%;
+    height: auto;
+}
+.doctorPortalHeader {
+    position: absolute;
+    top:10%;
+    color:#fff;
+    width: 100%;
+}
+.doctorPortalSubHeader {
+    position: absolute; 
+    bottom: 30%;
+    left: 10%;
+    color: #fff;
+    .subHeadText {
+        font-size: 20px
+    }
+    a {
+        background: #9155A7;
+        padding: 5px 31px;
+        border-radius: 18%;
+    }
 }
 .questionBox{
-    padding:10px 10px 0 10px;
-    overflow:hidden;
+    padding: 10px 10px 0 10px;
+    overflow: hidden;
     h4{
         font-size:14px;
         color:#9155A7;
@@ -382,4 +404,60 @@ button:focus {
 }
 .plan-features {
     margin-left: 20px;
+}
+/* GENERIC TABLET. Rules for Tablet devices *only* - regardless of orientation */
+@media screen and (orientation: landscape) and (min-width: 669px) and (max-width: 1024px), (orientation: portrait) and (min-width: 421px) and (max-width: 1024px) {
+    .doctorPortalHeader h1 {
+        font-size: 22px;
+    }
+    .doctorPortalSubHeader .subHeadText {
+        font-size: 16px;
+    }
+}
+/* GENERIC PHONE. Rules for Phones *only* - regardless of orientation */
+@media screen and (orientation: landscape) and (max-width: 737px), (orientation: portrait) and (max-width: 737px) {
+    .doctorPortalHeader {
+        position: absolute;
+        top: -5px;
+        color: #fff;
+        width: 100%;
+        h1 {
+            font-size: 16px;
+        }
+    }
+     
+    .doctorPortalSubHeader{
+        bottom: -5px;
+        left: 5%;
+        width: 55%;
+        a {
+            padding: 2px 10px;
+        }
+        .subHeadText {
+            font-size: 12px;
+        }
+    }
+}
+
+.lightBoxContainer {
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    -webkit-box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 39px 12px rgba(0,0,0,0.75);
+}
+#success_message{ 
+    display: none;
+}
+.well {
+    margin-bottom: 0px;
+}
+.widget-header h3{
+    font: bold 16px 'Arial';
+    margin: 0;
+}
+.uploader {
+    
 }

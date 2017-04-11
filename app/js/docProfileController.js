@@ -1,29 +1,28 @@
 specialist.controller('docProfileCtrl', ['$scope', 'dataService', function($scope, dataService) {
-    var doctorId = 4;
+    var doctorId = dataService.getSession();
     $scope.editProfile2 = false;
     $scope.editProfile = true;
-    // dataService.getDoctorData(doctorId).then(function(data) {
-    //     console.log(data);
-    //     $scope.doctorData = data[0];
-    // });
     $scope.docJson;
-    dataService.getDoctorData('14').then(function(resp){
+    dataService.getDoctorData(doctorId).then(function(resp){
         $scope.docJson = resp[0];
         console.log('doctor data', $scope.docJson);
     });
 
     $scope.showEditForm = function(tabId){
-        if (tabId == '1'){
-            $scope.editProfile2 = false;
-            $scope.editProfile = true;
-            document.getElementById("1").classList.add("active");
-            document.getElementById("2").classList.remove("active");
-        } else if (tabId == '2') {
-            $scope.editProfile2 = true;
-            $scope.editProfile = false;
-            document.getElementById("2").classList.add("active");
-            document.getElementById("1").classList.remove("active");
-            //document.getElementById('2').className += 'active';
+        // if (tabId == '1'){
+        //     $scope.editProfile2 = false;
+        //     $scope.editProfile = true;
+        //     document.getElementById("1").classList.add("active");
+        //     document.getElementById("2").classList.remove("active");
+        // } else if (tabId == '2') {
+        //     $scope.editProfile2 = true;
+        //     $scope.editProfile = false;
+        //     document.getElementById("2").classList.add("active");
+        //     document.getElementById("1").classList.remove("active");
+        // }
+        var inputs = document.getElementsByClassName('toggleDisable');
+        for(var i = 0; i < inputs.length; i++) {
+            inputs[i].disabled = false;
         }
     }
 

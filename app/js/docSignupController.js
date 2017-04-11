@@ -62,11 +62,7 @@ specialist.controller('docSignupCtrl', ['$scope','$state','dataService', functio
 				if(resp){
 					$state.go('doctorProfile.dashboard');
 				}
-			})
-			//to be removed
-			// dataService.signUpDoctor(signUpData).then(function(resp){
-			// 	$state.go('doctorProfile.dashboard');
-			// });
+			});
 		} else if(!isValid){
 			$scope.err_msg = true;
 		}

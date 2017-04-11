@@ -3,7 +3,7 @@
         <i class="icon-th-large"></i> User Account
     </h1>
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             <div class="widget">
                 <div class="widget-header">
                     <h3>Basic Information</h3>
@@ -22,18 +22,18 @@
                         <br>
                         <div class="tab-content">
                             <div class="tab-pane active" id="1" ng-show="editProfile">
-                            <form class="well" action="upload.php" method="post" enctype="multipart/form-data">
-                                                <div class="">
-                                                    <input type="file" name="file">
-                                                </div>
-                                                <input type="submit" class="btn btn-primary" value="Upload">
-                                            </form>
+                                <form class="well" action="upload.php" method="post" enctype="multipart/form-data">
+                                    <div class="">
+                                        <input type="file" name="file">
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" value="Upload">
+                                </form>
                                 <form id="edit-profile" class="form-horizontal" ng-submit="showEditForm()">
                                     <fieldset>
                                         <div class="control-group">
                                             <label class="control-label" for="username">Username</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="username" ng-model="docJson.username" value="{{docJson.name}}" disabled="">
+                                                <input type="text" class="input-medium form-control" id="username" ng-model="docJson.username" value="{{docJson.name}}" disabled>
                                                 <p class="help-block">Your username is for logging in and cannot be changed.</p>
                                             </div>
                                             <!-- /controls -->
@@ -42,7 +42,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="firstname">First Name</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="firstname" value="Rod" disabled="">
+                                                <input type="text" class="input-medium form-control toggleDisable" id="firstname" value="Rod" disabled>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -50,7 +50,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="lastname">Last Name</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="lastname" value="Howard" disabled="">
+                                                <input type="text" class="input-medium form-control toggleDisable" id="lastname" value="Howard" disabled>
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -102,7 +102,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="password1">Password</label>
                                             <div class="controls">
-                                                <input type="password" class="input-medium form-control" id="password1" value="password" disabled="">
+                                                <input type="password" class="input-medium form-control toggleDisable" id="password1" value="password" disabled="">
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -110,7 +110,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="password2">Confirm</label>
                                             <div class="controls">
-                                                <input type="password" class="input-medium form-control" id="password2" value="password" disabled="">
+                                                <input type="password" class="input-medium form-control toggleDisable" id="password2" value="password" disabled="">
                                             </div>
                                             <!-- /controls -->
                                         </div>
