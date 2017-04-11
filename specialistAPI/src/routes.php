@@ -145,9 +145,9 @@ $app->post('/doctor/add',function($request,$response,$arga){
         $error = "Enter a  valid email";
     }
 
-    if (strlen($password) <= 6){
-        $error = "Choose a password longer then 6 character";
-    }
+    //if (strlen($password) <= 6){
+    //    $error = "Choose a password longer then 6 character";
+   // }
 
     if(!isset($error)){
 	$this->logger->info("Specialist '/' Add");
