@@ -1,4 +1,4 @@
-specialist.factory('dataService', ['$http', function($http) {
+specialist.factory('dataService', ['$http','$window', function($http,$window) {
 	var signUpDocObj = {};
     return {
         getFullDoctorList: function() {
@@ -23,10 +23,10 @@ specialist.factory('dataService', ['$http', function($http) {
             //return signUpDocObj;
         },
         setSession:function(user){
-            sessionStorage.user = JSON.stringify($scope.user);
+            $window.sessionStorage.setItem('user',JSON.stringify(user));
         },
         getSession:function(){
-            return sessionStorage.user;
+            return $window.sessionStorage.getItem('user');
         },
         getDoctorData: function(id) {
             return $http.get('http://0.0.0.0:8081/doctor/'+id).then(function(resp){

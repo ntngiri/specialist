@@ -7,9 +7,9 @@
 	{
 
 		private $dbhost = '127.0.0.1';
-		private $dbuser = 'ntngiri';
-		private $pass = '123456';
-		private $dbname = 'specialist';
+		private $dbuser = 'specialistUser';
+		private $pass = 'Ntnbhaw1!';
+		private $dbname = 'specialistDB';
 		
 		public function connect(){
 			$pdoString = "mysql:host=$this->dbhost;dbname=$this->dbname;port=3306";
