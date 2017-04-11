@@ -2,56 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ef4d232-d86f-4c34-b80e-ec5bb3299a57" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/css/all.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/calender.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/day.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/docBooking.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/docFaq.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/docPlans.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/docProfile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/docprofileDashboard.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/doctorPortal.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/header.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/main.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/month.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/quesans.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/search.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/html/week.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/award.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/award.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/back.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/calenView.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/commonIcon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/doctorImg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/doctorPortal.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/download.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/elbow.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/header1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/header2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/light_gray_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/manage_bg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/neck.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/quesans.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/images/shoulder.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpintel/2c5cc8515d9eaed0502f631f4687883b" afterPath="$PROJECT_DIR$/.phpintel/2c5cc8515d9eaed0502f631f4687883b" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpintel/934dcadd754604a602159c8d1b395279" afterPath="$PROJECT_DIR$/.phpintel/934dcadd754604a602159c8d1b395279" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpintel/ddf6f1bab7413ab43f63b845b7c6a322" afterPath="$PROJECT_DIR$/.phpintel/ddf6f1bab7413ab43f63b845b7c6a322" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.phpintel/index" afterPath="$PROJECT_DIR$/.phpintel/index" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/app.js" afterPath="$PROJECT_DIR$/app/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/dataService.js" afterPath="$PROJECT_DIR$/app/js/dataService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/docProfileController.js" afterPath="$PROJECT_DIR$/app/js/docProfileController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/js/docSignupController.js" afterPath="$PROJECT_DIR$/app/js/docSignupController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/DocUserProfile.html" afterPath="$PROJECT_DIR$/app/templates/DocUserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/templates/docSignup.html" afterPath="$PROJECT_DIR$/app/templates/docSignup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/DocUserProfile.html" afterPath="$PROJECT_DIR$/build/html/DocUserProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/html/docSignup.html" afterPath="$PROJECT_DIR$/build/html/docSignup.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/js/all.min.js" afterPath="$PROJECT_DIR$/build/js/all.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/app.log" afterPath="$PROJECT_DIR$/logs/app.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specialistAPI/public/index.php" afterPath="$PROJECT_DIR$/specialistAPI/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/specialistAPI/src/routes.php" afterPath="$PROJECT_DIR$/specialistAPI/src/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/award.jpg" afterPath="$PROJECT_DIR$/app/assets/img/award.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/award.png" afterPath="$PROJECT_DIR$/app/assets/img/award.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/back.jpeg" afterPath="$PROJECT_DIR$/app/assets/img/back.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/calenView.png" afterPath="$PROJECT_DIR$/app/assets/img/calenView.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/commonIcon.png" afterPath="$PROJECT_DIR$/app/assets/img/commonIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/doctorImg.png" afterPath="$PROJECT_DIR$/app/assets/img/doctorImg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/doctorPortal.png" afterPath="$PROJECT_DIR$/app/assets/img/doctorPortal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/download.jpeg" afterPath="$PROJECT_DIR$/app/assets/img/download.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/elbow.jpg" afterPath="$PROJECT_DIR$/app/assets/img/elbow.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/header1.jpg" afterPath="$PROJECT_DIR$/app/assets/img/header1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/header2.jpg" afterPath="$PROJECT_DIR$/app/assets/img/header2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/light_gray_bg.png" afterPath="$PROJECT_DIR$/app/assets/img/light_gray_bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/manage_bg.png" afterPath="$PROJECT_DIR$/app/assets/img/manage_bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/map.png" afterPath="$PROJECT_DIR$/app/assets/img/map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/neck.jpg" afterPath="$PROJECT_DIR$/app/assets/img/neck.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/quesans.png" afterPath="$PROJECT_DIR$/app/assets/img/quesans.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/img/shoulder.png" afterPath="$PROJECT_DIR$/app/assets/img/shoulder.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/award.jpg" afterPath="$PROJECT_DIR$/build/images/award.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/back.jpeg" afterPath="$PROJECT_DIR$/build/images/back.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/commonIcon.png" afterPath="$PROJECT_DIR$/build/images/commonIcon.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/download.jpeg" afterPath="$PROJECT_DIR$/build/images/download.jpeg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/elbow.jpg" afterPath="$PROJECT_DIR$/build/images/elbow.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/header1.jpg" afterPath="$PROJECT_DIR$/build/images/header1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/header2.jpg" afterPath="$PROJECT_DIR$/build/images/header2.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/manage_bg.png" afterPath="$PROJECT_DIR$/build/images/manage_bg.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/images/neck.jpg" afterPath="$PROJECT_DIR$/build/images/neck.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -63,11 +40,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dataService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/dataService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            <state relative-caret-position="389">
+              <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -245,7 +232,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="specialistAPI" />
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,25 +246,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="specialistAPI" />
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -294,8 +267,44 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -539,7 +548,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="9" y="42" width="1262" height="690" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -555,7 +563,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24960381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -663,8 +671,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/dataService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        <state relative-caret-position="389">
+          <caret line="42" column="34" lean-forward="false" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
