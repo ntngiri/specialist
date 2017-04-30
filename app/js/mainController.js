@@ -13,4 +13,7 @@ specialist.controller('mainController', ['$scope', function ($scope) {
           console.log(obj1);
         }
         $scope.api = {};
+
+     $scope.$parent.doctorPatient = 'For Doctor';
+	$scope.$parent.doctorPatientUrl ='doctorPortal';
 }])

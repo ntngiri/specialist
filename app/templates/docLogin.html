@@ -1,0 +1,67 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5 text-center">
+                    <h3>Welcome to the network</h3>
+                </div>
+            </div>
+            <div class="col-sm-12 text-center">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-5">
+                    <div class="signUpTimeline">
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-7">
+                <form class="docFrm" name="firstForm" novalidate>
+                    <div class="row" ng-show="err_msg">
+                        <p class="help-block"><i>Please provide your required details.</i></p>
+                    </div>
+                    <div class="row">
+                        
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <label for='usr'>Email Id</label>
+                            </div>
+                            <div>
+                                <input name="email" ng-model="email" type="email" class="form-control" placeholder="Enter mail id" required>
+                                <p ng-show="firstForm.email.$invalid && !firstForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div>
+                                <label for='usr'>Password</label>
+                            </div>
+                            <div>
+                                <input name="password" ng-model="pass" type="password" class="form-control" placeholder="Enter Password" ng-minlength="8" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p ng-show="pass_err" class="help-block">Password did not match</p>
+                            <p ng-show="firstForm.password.$error.minlength" class="help-block">Password length must be minimum 8 characters long.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <button class="login-button" ui-sref="doctorPortal">Cancel</button>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <button class="login-button" ng-click="loginDoc(firstForm.$valid,$event)">Login</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+</section>

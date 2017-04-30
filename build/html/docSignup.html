@@ -46,11 +46,11 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div>
-                                <label for='usr'>username</label>
+                                <label for='usr'>Username</label>
                             </div>
                             <div>
                                 <input name="username" ng-model="username" type="text" class="form-control" placeholder="Enter username" required ng-blur="checkusername()">
-                                <p ng-show="firstForm.username.$invalid && !firstForm.username.$pristine || usernameExist" class="help-block">username already exist.</p>
+                                <p ng-show="firstForm.username.$invalid && !firstForm.username.$pristine || usernameExist" class="help-block">Username already exist.</p>
                             </div>
                         </div>
                     </div>
@@ -60,8 +60,9 @@
                                 <label for='usr'>Email Id</label>
                             </div>
                             <div>
-                                <input name="email" ng-model="email" type="email" class="form-control" placeholder="Enter mail id" required>
+                                <input name="email" ng-model="email" type="email" class="form-control" placeholder="Enter mail id" required ng-blur="checkEmail()">
                                 <p ng-show="firstForm.email.$invalid && !firstForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                                <p ng-show="emailExist" class="help-block">Email already exist.</p>
                             </div>
                         </div>
                     </div>

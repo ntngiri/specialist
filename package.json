@@ -7,6 +7,7 @@
     "angular-ui-router": "^0.4.2",
     "bootstrap": "^3.3.7",
     "install": "^0.8.7",
+    "ng-tags-input": "^3.2.0",
     "npm": "^4.3.0"
   },
   "scripts": {
@@ -28,6 +29,7 @@
     "gulp-connect": "^5.0.0",
     "gulp-csso": "^2.0.0",
     "gulp-imagemin": "^3.1.1",
+    "gulp-minify": "0.0.15",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.1.0"
   },

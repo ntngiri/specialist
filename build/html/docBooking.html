@@ -1,67 +1,80 @@
-<section style="position: relative;">
-    <div class="buildImg">
+<section>
+    <!-- <div class="buildImg">
         <img src="build/images/map.png" style="width: 100%">
-    </div>
-    <div style="position: absolute;bottom: -18px;width: 100%;z-index:99">
-        <div class="row" style="width:80%;margin:0 auto">
-            <div class="docTuple">
-                <div class="row">
+    </div> -->
+    <style type="text/css">
+    .docProfile {
+        background: #fff;
+        padding: 5px;
+    }
+    
+    .docProfile .head {
+        padding-bottom: 5px;
+        color: #414146;
+    }
+    </style>
+    <div class="container">
+        <div class="row mtb20">
+            <div class="col-md-9">
+                <div class="row docProfile">
                     <div class="col-md-2 text-center">
-                        <img src="build/images/download.jpeg" width="66px" style="border-radius: 50%">
+                        <img ng-src='images/{{::bookDoctor.profile_pic}}' width="66px" style="border-radius: 50%">
                     </div>
-                    <div class="col-md-7">
-                        <p class="head">Advance physiotherapy clinic</p>
-                        <p class="address">C/o Advance Physiotherapy,<br/>Gurudwara Gobind Garh Charitable Physiotherapy Clinic,<br/> Kabool Nagar, Shahdara,<br/> Delhi - 110032</p>
+                    <div class="col-md-10">
+                        <h3 class="head">{{::bookDoctor.name}}</h3>
+                        <p>{{::bookDoctor.education}}</p>
+                        <p class="address">{{::bookDoctor.specialist}}</p>
+                        <p>{{::bookDoctor.about}}</p>
+                        <div><span class="glyphicon glyphicon-heart"></span>{{::bookDoctor.like}}</div>
+                        <div><span class="glyphicon glyphicon-question-sign"></span>{{::bookDoctor.questionAnswered}} Question Answered</div>
                     </div>
-                    <div class="col-md-3">
-                        <div><span class="glyphicon glyphicon-heart"></span>20 likes</div>
-                        <div><span class="glyphicon glyphicon-question-sign"></span>30 Question Answered</div>
+                </div>
+                <div class="row">
+                    <div class="tabs-container">
+                        <div class="content">
+                            <ul>
+                                <!--
+                            -->
+                                <li data-order="1" class="active"><a href="#" data-panel="elm-infopanel-_ef0512b48-panel-95">Specialist Profile</a></li>
+                                <!--
+                            -->
+                                <li data-order="2"><a href="#" data-panel="elm-infopanel-_ef0512b48-panel-98">Feedbacks</a></li>
+                                <!--
+                            -->
+                                <li data-order="3"><a href="#" data-panel="elm-infopanel-_ef0512b48-panel-99">Ask Questions</a></li>
+                                <!--
+                            -->
+                                <!--
+                        -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row docProfile">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2>{{::bookDoctor.city}} , {{::bookDoctor.state}}</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <b>{{::bookDoctor.clinic_name}}</b>
+                            <p>{{::bookDoctor.address}}</p>
+                        </div>
+                        <div class="col-md-2">
+                            timing
+                        </div>
+                        <div class="col-md-4">
+                            <p>home visit Fee Rs<em> {{::bookDoctor.hv_fee}}</em></p>
+                            <p>Clinic fee Rs <em>{{::bookDoctor.fee}}</em></p>
+                        </div>
+                    </div>
+                    <div class="row">
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
-</section>
-<!-- <section>
-    <div class="container">
-        <div class="row mtb20">
-        <div class="col-md-12 text-center">
-            <h3>Your Upcoming Bookings</h3>
-        </div>
-        </div>
-        <div class="row">
-            <span>Clinic</span>
-        </div>
-        <div class="row">
-            <span>Home Visits</span>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <div class="row mtb20">
-            <h3>Your Reviews</h3>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <div class="row mtb20">
-            <h3>Your Reviews</h3>
-        </div>
-    </div>
-</section>  -->
-<section>
-    <ul>
-        <li>
-           Appointment 
-        </li>
-        <li>
-            Home Visit
-        </li>
-        <li>
-            Online Consultation
-        </li>
-    </ul>
-</section>

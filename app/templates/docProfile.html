@@ -3,7 +3,25 @@
         <div class="row mtb20">
             <div class="col-sm-3">
                 <div class="account-container">
-                    <div class="account-avatar">
+                    <div class="account-avatar" style="position:relative;">
+                        <style type="text/css">
+                        .cropArea {
+                            background: #E4E4E4;
+                            overflow: hidden;
+                            width: 500px;
+                            height: 350px;
+                            position: absolute;
+                            top: 10%;
+                            left: 30%;
+                            z-index: 99;
+                        }
+                        </style>
+                        <!-- <div>Select an image file:
+                            <input type="file" id="fileInput" />
+                        </div> -->
+                        
+                       <!--  <div>Cropped Image:</div>
+                        <div><img ng-src="{{myCroppedImage}}" /></div> -->
                         <!-- Add src of doctor image -->
                         <!-- <form class="well" action="/upload/profilePic" method="post" enctype="multipart/form-data">
                             <div class="form-group">
@@ -11,7 +29,8 @@
                             </div>
                             <input type="submit" class="btn btn-lg btn-primary" value="Upload">
                         </form> -->
-                        <img src="" alt="" class="thumbnail" style="width:50px;height: 50px;">
+                        <img ng-src="images/{{docJson.profile_pic}}" alt="" class="thumbnail" style="width:50px;height: 50px;" ng-click="fireUpload()">
+                        <input type="file" id="fileInput" style="position: absolute;bottom:38px;display: none" />
                     </div>
                     <div class="account-details">
                         <span class="account-name">{{docJson.name}}</span>
@@ -20,7 +39,7 @@
                         <span class="account-actions">
                             <a ui-sref="doctorProfile.profile">Profile</a> |
                             
-                            <a ng-click="showEditForm('2')">Edit Settings</a>
+                            <a ng-click="showEditForm()">Edit Settings</a>
                         </span>
                     </div>
                 </div>
@@ -38,6 +57,10 @@
                 </div>
                 <br>
             </div>
+            <div class="cropArea" ng-show="cropper">
+            <div><button ng-click="uploadPic()">DONE</button></div>
+                            <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+                        </div>
             <ui-view></ui-view>
         </div>
     </div>

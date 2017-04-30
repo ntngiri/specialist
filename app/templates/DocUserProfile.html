@@ -22,35 +22,27 @@
                         <br>
                         <div class="tab-content">
                             <div class="tab-pane active" id="1" ng-show="editProfile">
-                            <form class="well" ng-submit="uploadFiles($event)" enctype="multipart/form-data">
-                                                <div class="">
-                                                    <input type="file" name="file">
-                                                </div>
-                                                <input type="submit" class="btn btn-primary" value="Upload">
-                                            </form>
-                                <form id="edit-profile" class="form-horizontal" ng-submit="showEditForm()">
+                                <form class="well" ng-submit="uploadFiles($event)" enctype="multipart/form-data">
+                                    <div class="">
+                                        <input type="file" name="file">
+                                    </div>
+                                    <input type="submit" class="btn btn-primary" value="Upload">
+                                </form>
+                                <form id="edit-profile" class="form-horizontal" ng-submit="saveDoctorData()">
                                     <fieldset>
                                         <div class="control-group">
                                             <label class="control-label" for="username">Username</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="username" ng-model="docJson.username" value="{{docJson.name}}" disabled="">
+                                                <input type="text" class="input-medium form-control" id="username" ng-model="docJson.username" disabled="">
                                                 <p class="help-block">Your username is for logging in and cannot be changed.</p>
                                             </div>
                                             <!-- /controls -->
                                         </div>
                                         <!-- /control-group -->
                                         <div class="control-group">
-                                            <label class="control-label" for="firstname">First Name</label>
+                                            <label class="control-label" for="firstname">Name</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="firstname" value="Rod" disabled="">
-                                            </div>
-                                            <!-- /controls -->
-                                        </div>
-                                        <!-- /control-group -->
-                                        <div class="control-group">
-                                            <label class="control-label" for="lastname">Last Name</label>
-                                            <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="lastname" value="Howard" disabled="">
+                                                <input type="text" class="input-medium form-control profileInputs" id="firstname" ng-model="docData.name" disabled="">
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -62,29 +54,35 @@
                                             </div>
                                         </div> -->
                                         <div class="control-group">
-                                            <label class="control-label" for="lastname">Experiece</label>
+                                            <label class="control-label" for="experience">Experiece</label>
+                                            <tags-input ng-model="tags">
+        <!-- <auto-complete source="loadTags($query)"></auto-complete> -->
+    </tags-input>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="" placeholder="Experience in Years">
+                                                <input type="text" class="input-medium form-control" id="" ng-model="docData.experience" placeholder="Experience in Years">
                                             </div>
                                             <!-- /controls -->
                                         </div>
                                         <div class="control-group">
-                                            <label class="control-label" for="lastname">Speciality</label>
+                                            <label class="control-label" for="speciality">Speciality</label>
                                             <div class="controls">
-                                                <input type="text" class="input-medium form-control" id="" placeholder="">
+                                                <droope tuplecount="10" option="options" data="speciality" droope-callback="" api="api" selected-id="[]" style="border: 1px solid #ccc;border-radius: 4px;"></droope>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" class="input-medium form-control" id="" ng-model="docData.speciality" placeholder="">
                                             </div>
                                             <!-- /controls -->
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label" for="">About Me</label>
                                             <div class="controls">
-                                                <textarea type="text" class="input-large form-control"></textarea>
+                                                <textarea type="text" ng-model="docData.about" class="input-large form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label class="control-label" for="">About Clinic</label>
                                             <div class="controls">
-                                                <textarea type="text" class="input-large form-control"></textarea>
+                                                <textarea type="text" ng-model="docData.about_clinic" class="input-large form-control"></textarea>
                                             </div>
                                         </div>
                                         <div class="control-group">
@@ -102,7 +100,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="password1">Password</label>
                                             <div class="controls">
-                                                <input type="password" class="input-medium form-control" id="password1" value="password" disabled="">
+                                                <input type="password" ng-model="docData.password" class="input-medium form-control" id="password1" disabled="">
                                             </div>
                                             <!-- /controls -->
                                         </div>
@@ -110,7 +108,7 @@
                                         <div class="control-group">
                                             <label class="control-label" for="password2">Confirm</label>
                                             <div class="controls">
-                                                <input type="password" class="input-medium form-control" id="password2" value="password" disabled="">
+                                                <input type="password" class="input-medium form-control" ng-model="docData.password" disabled="">
                                             </div>
                                             <!-- /controls -->
                                         </div>

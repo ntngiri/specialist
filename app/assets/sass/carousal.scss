@@ -1,7 +1,13 @@
-$green_light: #79CCA7;
-$green_medium: #1DB375;
-$green_dark: #177D54;
+$green_light: #8ACDE0;
+$green_medium: #6DC1D8;
+$green_dark: #5891AF;
 $yellow: #FFB81F;
+$red: #C23571;
+$color--white :#FFFFFF;
+$color--black :#000000;
+$color--light-grey:#E6E6E6;
+$color--grey: #CCCCCC;
+$color--dark-grey :#7B7B7B;
 body {
     background: url(../images/light_gray_bg.png)
 }
@@ -10,10 +16,13 @@ body {
     font-family: "Roboto", sans-serif;
     box-sizing: border-box;
 }
+a:hover {
+    text-decoration: none;
+    outline: none;
+}
 h1,h2,h3 {
-        color: $green_medium;
-    }
-
+    color: $green_medium;
+}
 
 .imageCarousal {
     width: 100%;
@@ -36,44 +45,80 @@ h1,h2,h3 {
 .holder {
     position: relative;
 }
-
+.lgtBoxCont{
+    display: block;
+    background: black;
+    opacity: 0.7;
+    display:none;
+        position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    
+}
+.lightBoxContainer{
+        width: 60%;
+            position: absolute;
+    top: 0px;
+    z-index: 9999;
+    top:10%;
+    left:22%;
+    }
 #boxCont {
     position: absolute;
-    bottom: 180px;
+    bottom: 0;
     width: 100%;
     .detSec {
-        //margin:0 5px;
-        padding: 2%;
+        padding: 2% 3%;
         color: #fff;
         position: relative;
-        opacity: 0.8;
-        height: 170px;
+        opacity: 0.9;
+        height: 210px;
+        p {
+            font-size: 12px;
+        }
         a {
             position: absolute;
             bottom: 25px;
-            background: #126643;
+            background: rgba(255,255,255,0.2);
             color: white;
-            padding: 5px 10px;
+            padding: 5px 40px;
             border: none;
+            font-size: 14px;
+        }
+        .book {
+            position: absolute;
+            left: 0;
+            width:70%;
+            bottom: 0px;
+            margin: 0px;
         }
     }
+    
     .row {
         width: 80%;
         margin: 0 auto;
     }
 }
 
+
 .bookNw {
-    position: absolute;
-    bottom: 0;
-    background: #9155A7;
-    color: #fff;
     width: 100%;
-    opacity: 0.9;
+    background: #f9f9f9;
+    .motoMsg {
+        padding: 4% 0;
+        letter-spacing: 0.8px;
+        color: black;
+        font-size: 24px;
+        text-align: center;
+        //text-shadow: #999 1px 1px 0, #999 6px 8px 6px, #ccc 11px 11px 11px;
+    }
 }
 
 .phnNo {
-    color: #9155A7;
+    color: $red;
     font-size: 29px;
 }
 
@@ -89,6 +134,9 @@ h1,h2,h3 {
     background: $green_dark;
 }
 
+.red{
+    background: $red;
+}
 svg {
     width: 20px;
     fill: #fff;
@@ -99,9 +147,12 @@ svg {
 }
 
 footer {
-    background: $green_light;
-    color: #fff;
+    background: #343434;
+    color: #999;
     padding: 10px 0;
+    h5 {
+        font-style: italic;
+    }
     .footerCopyright {
         text-align: center;
         font-size: 12px;
@@ -124,11 +175,6 @@ footer {
     width: 100%;
 }
 
-.motoMsg {
-    padding: 15px;
-    font-size: 30px;
-}
-
 .svgContThree {
     padding-top: 32px;
     padding-right: 23px;
@@ -147,6 +193,10 @@ footer {
     margin: 20px 0;
 }
 
+.paddingTop10 {
+    padding-top: 10%
+}
+
 .svgBoxDetail {
     margin-top: 20px;
 }
@@ -156,12 +206,59 @@ footer {
 }
 
 #ourPlan {
-    h1,
-    h3 {
+    background-color: #fff;
+    padding: 5%;
+    h1, h3 {
         color: $green_medium;
     }
 }
+#doctorVeriProcess {
+    .processHeader{
+        //position: relative;
+        background-color: #5891af;
+    }
+    h4 {
+        white-space: nowrap;
+        color: #fff;
+        transition: none;
+        line-height: 46px;
+        margin: 0px;
+        padding: 10px 0px;
+        font-size: 40px;
+    }
+    .certifiedIcon {
+        width:40px;
+        height:40px;
+    }
+    .processImage {
+        position:absolute;
+        // left: 64%;
+        // top: -15px;
+        right:0;
+        top:-15%;
+    }
+    .processBox {
+        text-align: center;
+        padding: 8% 5%;
+    }
+    .box {
+        //background-color: #c23571;
+        margin: 5px;
+        padding: 5px;
+        font-size: 14px;
+        color: #000;
+        float: left;
+    }
+    .arrow {
+        margin: 20px 10px; 
+        float: left;
+    }
+}
 
+hr {
+    margin: 10px 0;
+    border-top: 1px solid #CCCCCC;
+}
 .nopadding {
     padding: 0;
 }
@@ -174,10 +271,13 @@ footer {
 .searchFilters,
 .docTuple,
 .callUs {
-    border: 1px solid $green_medium;
+    //box-shadow: 6px 6px 10px $color--grey;
     overflow: hidden;
     background: #FEFEFE;
-    box-shadow: 4px 4px 5px #888888;
+    .profilePic{
+            border-radius: 50%;
+    border: 6px solid #F3F3F3;
+    }
 }
 
 .callUs {
@@ -198,7 +298,7 @@ footer {
         }
     }
     .svgContainer {
-        background: #9155A7;
+        background: $red;
     }
     .head{
         font-weight:bold;
@@ -220,25 +320,154 @@ footer {
     color:#C82405
 }
 
-.buildImg{
-    background:url(../images/hp_manage_bg.png)
-}
+// .buildImg{
+//     background-size: contain;
+//     height: auto;
+// }
 img{
     width:100%;
 }
-.questionBox{
-    padding:10px 10px 0 10px;
-    overflow:hidden;
-    h4{
-        font-size:14px;
-        color:#9155A7;
+.doctorPortalHeader {
+    position: absolute;
+    top:10%;
+    color:#fff;
+    width: 100%;
+}
+.doctorPortalSubHeader {
+    position: absolute; 
+    bottom: 30%;
+    left: 10%;
+    color: #fff;
+    .subHeadText {
+        font-size: 20px
     }
-    .row{
-        background:#1DB375;
-        a{
-            color:#fff;
+    a {
+        background-color: #87999e;
+        padding: 5px 31px;
+        border-radius: 18%;
+        color: white;
+    }
+}
+.services {
+    color: white;
+    letter-spacing: 1px;
+}
+.serviceSection {
+    h4 {
+        font-style: italic;
+        text-transform: uppercase;
+        color: $green_dark;
+        letter-spacing: 0.5px;
+    }
+    p {
+        color: $green_dark;
+    }
+}
+.bt1 {
+    background-color: $color--light-grey;
+    h3 {
+        color: $color--dark-grey;
+    }
+}
+.elm-question-sec {
+    padding-left: 0px;
+    padding-right: 0px;
+    max-width: 100%;
+    .elm-question-box {
+        background-color: $green_medium;
+    }
+    .elm-wrapper{
+        display: flex;
+        display: -webkit-flex;
+        flex-flow: wrap;
+        -webkit-flex-flow: wrap;
+    }
+    .item {
+        flex: auto;
+        -webkit-flex: auto;
+        margin-bottom: 0;
+        margin-right: 0;
+        padding: 30px;
+        float: left;
+    }
+    .item:nth-child(2n) {
+        background: rgba(255,255,255,0.2);
+    }
+    img {
+        height: 70px;
+    }
+    .item-thumbnail {
+        padding-top: 15px;
+    }
+    .item-data {
+        padding-left: 20px;
+        h5{
+            color: white;
         }
     }
+    .elem-box-footer{
+        bottom: 0;
+        margin-top: 10px;
+        a {
+            color: white;
+            text-transform: uppercase;
+            font-style: italic;
+            font-weight: 300;
+        }
+        a:hover {
+            color: $green_dark;
+        }
+    }
+    .question-box-submenu {
+        top: 0px;
+        position: absolute;
+        left: 0px;
+        z-index: 600;
+        text-align: left;
+        width: 100%;
+        .question-box-drop {
+            bottom: 0;
+            background: rgba(255,255,255,0.95);
+            -moz-box-shadow: -50px -100px 200px -200px rgba(0,0,0,0.1) inset;
+            -webkit-box-shadow: -50px -100px 200px -200px rgba(0,0,0,0.1) inset;
+            box-shadow: -50px -100px 200px -200px rgba(0,0,0,0.1) inset;
+            color: #777;
+            max-height: 0px;
+            position: absolute;
+            left: 0;
+            overflow: hidden;
+            width: 100%;
+            -moz-transition: all ease-in 0.5s;
+            -webkit-transition: all ease-in 0.5s;
+            transition: all ease-in 0.5s;
+        }
+    }
+}
+.questionBox{
+    // backgound: #3D6B7E;
+    // padding:10px 10px 0 10px;
+    // overflow:hidden;
+    // h4{
+    //     font-size:14px;
+    //     color:$red;
+    // }
+    // .row{
+    //     background:$green_dark;
+    //     a{
+    //         color:#fff;
+    //     }
+    // }
+}
+.carousel-inner{
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-image: url(../images/homeBack.jpg);
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: inherit;
 }
 .oh{
     overflow:hidden;
@@ -276,7 +505,7 @@ img{
     background:$green_medium;
     border-radius:2px;
     div:nth-child(2){
-        background:#9155A7;
+        background:$red;
         height:5px;
     }
 }
@@ -382,4 +611,202 @@ button:focus {
 }
 .plan-features {
     margin-left: 20px;
+}
+.showFilterDropDown{
+    position: relative;
+    z-index: 999;
+    .filterOpen {
+        background-color: $color--light-grey;
+        opacity: 0.9;
+        -webkit-animation: filterOpen 0.50s normal forwards ease-in-out;
+        -moz-animation: filterOpen 0.50s normal forwards ease-in-out;
+        animation: filterOpen 0.50s normal forwards ease-in-out;
+        -webkit-transform-origin: 50% 0%;
+        -moz-transform-origin: 50% 0%;
+        transform-origin: 50% 0%;
+    }
+    .filterClose {
+        background-color: $color--light-grey;
+        opacity: 0.9;
+        -webkit-animation: filterClose 0.50s normal forwards ease-in-out;
+        -moz-animation: filterClose 0.50s normal forwards ease-in-out;
+        animation: filterClose 0.50s normal forwards ease-in-out;
+        -webkit-transform-origin: 100% 0%;
+        -moz-transform-origin: 100% 0%;
+        transform-origin: 100% 0%;
+    }
+
+    // Opening and closing motion for conditional fieldset
+    @-webkit-keyframes filterOpen {
+        from { transform: scaleY(0) }
+        to { transform: scaleY(1) }
+    }
+    @-moz-keyframes filterOpen {
+        from { transform: scaleY(0) }
+        to { transform: scaleY(1) }
+    }
+    @keyframes filterOpen {
+        from { transform: scaleY(0) }
+        to { transform: scaleY(1) }
+    }
+
+    @-webkit-keyframes filterClose {
+        from { transform: scaleY(1) }
+        to { transform: scaleY(0) }
+    }
+    @-moz-keyframes filterClose {
+        from { transform: scaleY(1) }
+        to { transform: scaleY(0) }
+    }
+    @keyframes filterClose {
+        from { transform: scaleY(1) }
+        to { transform: scaleY(0) }
+    }
+
+    .filterRadio {
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+        }
+
+        ul li{
+            color: $red;
+            position: relative;
+            float: left;
+            width: 30%;
+            margin:10px;
+        }
+
+
+        ul li input[type=radio]{
+            position: absolute;
+            visibility: hidden;
+        }
+
+        ul li label{
+            display: block;
+            position: relative;
+            font-weight: 300;
+            font-size: 14px;
+            padding: 3px 0px 0px 30px;
+            z-index: 9;
+            cursor: pointer;
+            -webkit-transition: all 0.25s linear;
+        }
+
+        ul li:hover label{
+            opacity: 0.5;
+        }
+
+        ul li .check{
+            display: block;
+            position: absolute;
+            border: 2px solid $red;
+            border-radius: 100%;
+            height: 15px;
+            width: 15px;
+            top: 5px;
+            left: 5px;
+            z-index: 5;
+            transition: border .15s linear;
+            -webkit-transition: border .15s linear;
+        }
+
+        ul li .check::before {
+            display: block;
+            position: absolute;
+            content: '';
+            border-radius: 100%;
+            height: 7px;
+            width: 7px;
+            top: 2px;
+            left: 2px;
+            margin: auto;
+            transition: background 0.15s linear;
+            -webkit-transition: background 0.15s linear;
+        }
+
+        input[type=radio]:checked ~ .check {
+          border: 2px solid $red;
+        }
+
+        input[type=radio]:checked ~ .check::before{
+          background: $red;
+        }
+
+        input[type=radio]:checked ~ label{
+          color: $red;
+        }
+    }
+}
+#loader{
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('/images/szmk-loader.gif') 50% 50% no-repeat #000;
+    opacity: 0.5;
+}
+
+/* GENERIC TABLET. Rules for Tablet devices *only* - regardless of orientation */
+@media screen and (orientation: landscape) and (min-width: 669px) and (max-width: 1024px), (orientation: portrait) and (min-width: 421px) and (max-width: 1024px) {
+    .doctorPortalHeader h1 {
+        font-size: 22px;
+    }
+    .doctorPortalSubHeader .subHeadText {
+        font-size: 16px;
+    }
+    #doctorVeriProcess {
+        .processImage {
+            left: 80%;
+        }
+    }
+}
+/* GENERIC PHONE. Rules for Phones *only* - regardless of orientation */
+@media screen and (orientation: landscape) and (max-width: 737px), (orientation: portrait) and (max-width: 737px) {
+    .buildImg {
+        content: url('../images/doctorportal_mobile.png');
+    }
+    .doctorPortalHeader {
+        position: absolute;
+        top: -5px;
+        color: #fff;
+        width: 100%;
+        h1 {
+            font-size: 16px;
+        }
+    }
+     
+    .doctorPortalSubHeader{
+        bottom: -5px;
+        left: 5%;
+        width: 55%;
+        a {
+            padding: 2px 10px;
+        }
+        .subHeadText {
+            font-size: 12px;
+        }
+    }
+    .services {
+        font-size: 14px;
+    }
+    .greenMd{
+        font-size: 20px;
+        width: 100%;
+        padding: 0px;
+    }
+    #doctorVeriProcess {
+        h4 {
+            font-size: 24px;
+        }
+        .processImage {
+            left: 86%;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-var specialist = angular.module('specialist', ['ui.router'])
+var specialist = angular.module('specialist', ['ui.router','naukri.droope','ngImgCrop','ngTagsInput'])
 .config(['$stateProvider','$locationProvider','$urlRouterProvider', function ($stateProvider,$locationProvider,$urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
@@ -27,6 +27,11 @@ var specialist = angular.module('specialist', ['ui.router'])
 		templateUrl: './build/html/docSignup.html',
 		controller: 'docSignupCtrl'
 	})
+	.state('docLogin',{
+		url:'/docLogin',
+		templateUrl:'./build/html/docLogin.html',
+		controller:'docLoginCtrl'
+	})
 	.state('doctorProfile', {
 		url:'/doctorProfile',
 		templateUrl: './build/html/docProfile.html',
@@ -47,12 +52,14 @@ var specialist = angular.module('specialist', ['ui.router'])
     })
     .state('doctorProfile.profile', {
         url: '/profile',
-        templateUrl: './build/html/docUserProfile.html',
-		//controller: 'docProfileCtrl'
+        templateUrl: './build/html/DocUserProfile.html',
+		controller: 'docEditProfileCtrl'
     })
     .state('doctor',{
     	url:'/doctor',
-    	templateUrl:'./build/html/docBooking.html'
+    	params : { id: null },
+    	templateUrl:'./build/html/docBooking.html',
+    	controller:'docBookingCtrl'
     })
 	$locationProvider.html5Mode(true);
 }]);

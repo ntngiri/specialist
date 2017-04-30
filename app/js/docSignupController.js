@@ -9,12 +9,23 @@ specialist.controller('docSignupCtrl', ['$scope','$state','dataService', functio
 	var signUpData = {};
 
 	$scope.checkusername = function(){
-		if(dataService.checkUserName($scope.username) == 1){
-			$scope.usernameExist = true;
-		}else{
-		    $scope.usernameExist = false;
-		}
-	}
+		dataService.checkUserName($scope.username).then(function(resp){
+			if(resp.data == 1){
+				$scope.usernameExist = true;
+			}else{
+			    $scope.usernameExist = false;
+			}
+		});
+	};
+	$scope.checkEmail = function(){
+		var val = dataService.checkEmailId($scope.email).then(function(resp){
+			if(resp.data == 1){
+				$scope.emailExist = true;
+			}else{
+			    $scope.emailExist = false;
+			}
+		});
+	};
 	$scope.checkEmailPwdValidity = function(value){
 		if(value == 'email'){
 			if($scope.email !== $scope.confEmail){
@@ -66,6 +77,8 @@ specialist.controller('docSignupCtrl', ['$scope','$state','dataService', functio
 			signUpData.clinic_name = $scope.clinicName;
 			signUpData.fee = $scope.clinicFee;
 			signUpData.hv_fee = $scope.homeVisit;
+			signUpData.username = $scope.username;
+			signUpData.password = $scope.pass;
 			dataService.signUpDoctor(signUpData).then(function(resp){
 				if(resp){
 					$state.go('doctorProfile.dashboard');

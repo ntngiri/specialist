@@ -1,124 +1,119 @@
-<section>
-    <img src="build/images/map.png" style="width: 100%">
-</section>
-<section class="searchBox mtb20">
-    <div class="container ">
-        <div class="col-xs-12 col-md-3 nopadding">
-            <div class="dropdown">
-                <droope tuplecount="10" option="options" data="data" droope-callback="onClickFunc(item)" api="api"></droope>
+<style type="text/css">
+.searchHolder {
+    position: relative;
+}
+
+.searchBox {
+    position: absolute;
+    top: 90px;
+}
+</style>
+<div class="searchHolder">
+    <section>
+        <img src="build/images/map.png" style="width: 100%">
+    </section>
+    <section class="searchBox">
+        <div class="container ">
+            <div class="col-xs-12 col-md-2 nopadding">
+                <!-- <div class="dropdown">
+                    <droope tuplecount="10" option="options" data="data" droope-callback="onClickFunc(item)" api="api"></droope>
+                </div> -->
             </div>
-        </div>
-        <div class="col-xs-12 col-md-3 nopadding">
-            <input type="text" class="form-control" placeholder="Location" aria-describedby="basic-addon1">
-        </div>
-        <div class="col-xs-12 col-md-4 nopadding">
-            <input type="text" class="form-control" placeholder="Specialist" aria-describedby="basic-addon1">
-        </div>
-        <div class="col-xs-12 col-md-2 nopadding">
-            <button type="button" class="btn btn-default">Search</button>
-        </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 searchFilters">
-                <div>
-                    Location
-                    <div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Noida</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Gurgaon</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Delhi</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Faridabad</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Ghaziabad</label>
-                        </div>
+            <div class="col-xs-12 col-md-8">
+                <div class="row">
+                    <div class="col-xs-12 col-md-5 nopadding">
+                        <droope tuplecount="10" option="options" data="locationData" droope-callback="onClickLocationFunc(item)" api="api" selected-id="[]"></droope>
+                    </div>
+                    <div class="col-xs-12 col-md-5 nopadding">
+                        <droope tuplecount="10" option="optionsSpec" data="data" droope-callback="onClickFunc(item)" api="api" selected-id="[]" onBlur="onFocusLose()"></droope>
+                    </div>
+                    <div class="col-xs-12 col-md-2 nopadding">
+                        <button type="button" class="btn btn-default">Search</button>
                     </div>
                 </div>
-                <div class="mtb20">
-                    Availability
-                </div>
-                <div class="mtb20">
-                    Clinic Fees
-                    <div>
-                        <input type="range" name="">
-                    </div>
-                </div>
-                <div class="mtb20">
-                    Home Visit Fees
-                    <div>
-                        <input type="range" name="">
-                    </div>
-                </div>
-                <div class="mtb20">
-                    Gender
-                    <div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Male</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" name="location">
-                            <label for="location">Female</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-7">
-                <div class="docTuple mtb20" ng-repeat="doc in doctorList">
-                    <div class="row ">
-                        <div class="col-md-2">
-                            <img src="build/images/download.jpeg" width="66px" style="border-radius: 50%">
-                        </div>
-                        <div class="col-md-7">
-                            <p class="head">{{::doc.name}}</p>
-                            <p class="address">{{::doc.address}}</p>
-                        </div>
-                        <div class="col-md-3">
-                            <div>
-                                {{::doc.fee}} Rs
+                <div class="row showFilterDropDown" ng-show="showFilterDropDown">
+                    <div id = "searchFilters" class="filterOpen">
+                        <div class="row">
+                            <div class="col-xs-10 col-md-10 mtb20" style="padding-left: 5%;">
+                                <droope tuplecount="10" option="options" data="subLocation" droope-callback="" api="api" selected-id="[]"></droope>
                             </div>
-                            <div>
-                                Certified
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 filterRadio mtb20">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="m-option" name="selector" checked>
+                                        <label for="m-option">Male</label>
+                                        <div class="check"></div>
+                                    </li>
+                                    <li>
+                                        <input type="radio" id="f-option" name="selector">
+                                        <label for="f-option">Female</label>
+                                        <div class="check"><div class="inside"></div></div>
+                                    </li>
+                                </ul>
                             </div>
-                            <div>
-                                83% Suggested
+                            <div class="col-md-8 col-xs-12">
+                                <label>Filter by Price: </label>
+                                <input type="range" name="">
+                                <!-- <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue" rz-slider-options="slider.options"></rzslider> -->
                             </div>
-                            <div><span class="glyphicon glyphicon-heart"></span>20 likes</div>
                         </div>
                     </div>
-                    <div class="row bookingRow">
-                        <div class="col-md-4 text-center">
-                            <a href="javascript:void(0)" ng-click="doctorBook()">Book Clinic Visit</a>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <a href="javascript:void(0)" ng-click="doctorBook()">Book Home Visit</a>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <a href="javascript:void(0)" ng-click="doctorBook()">Ask Question</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="callUs">
-                    <em class="callIc"></em>
-                    <span class="phnNo">1800528333</span>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-9">
+                    <div class="docTuple mtb20" ng-repeat="doc in doctorList">
+                        <div class="row ">
+                            <div class="col-md-2">
+                                <img ng-src="images/{{doc.profile_pic}}" width="66px" class="profilePic">
+                            
+                            </div>
+                            <div class="col-md-7">
+                                <p class="head">{{::doc.name}}</p>
+                                <p class="address">{{::doc.address}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <div>
+                                    {{::doc.fee}} Rs
+                                </div>
+                                <div>
+                                    Certified
+                                </div>
+                                <div>
+                                    83% Suggested
+                                </div>
+                                <div><span class="glyphicon glyphicon-heart"></span>20 likes</div>
+                            </div>
+                        </div>
+                        <div class="row bookingRow">
+                            <div class="col-md-4 text-center">
+                                <a href="javascript:void(0)" ui-sref="doctor({id:doc.id})">Book Clinic Visit</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="javascript:void(0)" ui-sref="doctor({id:doc.id})">Book Home Visit</a>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <a href="javascript:void(0)" ui-sref="doctor({id:doc.id})">Ask Question</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mtb20">
+                    <div class="callUs">
+                        <em class="callIc"></em>
+                        <span class="phnNo">1800528333</span>
+                    </div>
+                    <div class="mtb20" style="height:300px;">
+                        Ad Area
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,58 +1,80 @@
-specialist.controller('docProfileCtrl', ['$scope', 'dataService', function($scope, dataService) {
+specialist.controller('docProfileCtrl', ['$scope', 'dataService', '$http', function($scope, dataService, $http) {
     var doctorId = 4;
-    $scope.editProfile2 = false;
+    $scope.editProfile2 = true;
     $scope.editProfile = true;
-    // dataService.getDoctorData(doctorId).then(function(data) {
-    //     console.log(data);
-    //     $scope.doctorData = data[0];
-    // });
-    $scope.docJson;
-    dataService.getDoctorData('14').then(function(resp){
+    $scope.cropper = false;
+    var fileName;
+    // var doctorUpdatedData = {};
+    // $scope.docJson;
+    // $scope.firstName = '';
+    // $scope.lastName = '';
+    // $scope.aboutMe = '';
+    // $scope.aboutclinic = '';
+    // $scope.experience = '';
+    // $scope.speciality = '';
+    // $scope.password = '';
+    $scope.myImage = '';
+    $scope.myCroppedImage = '';
+
+
+    $scope.fireUpload = function() {
+        document.getElementById('fileInput').click();
+    };
+    var handleFileSelect = function(evt) {
+        var file = evt.currentTarget.files[0];
+        fileName = file.name;
+        console.log(file);
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+            $scope.$apply(function($scope) {
+                $scope.myImage = evt.target.result;
+            });
+        };
+
+        reader.readAsDataURL(file);
+        $scope.cropper = true;
+    };
+    angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+
+    // function getNames(value) {
+    //     var arr = value.split(" ");
+    //     $scope.firstName = arr[0];
+    //     $scope.lastName = arr[1];
+    // }
+
+    dataService.getCurrentDoctorData().then(function(resp) {
         $scope.docJson = resp[0];
+        //getNames(resp[0].name);
         console.log('doctor data', $scope.docJson);
     });
 
-
-    //$('form').on('submit', uploadFiles);
-
-    // Catch the form submit and upload the files
-    $scope.uploadFiles = function(event)
-    {
-      event.stopPropagation(); // Stop stuff happening
-        event.preventDefault(); // Totally stop stuff happening
-
-        // START A LOADING SPINNER HERE
-
-        // Create a formdata object and add the files
-        var data = new FormData();
-        angular.forEach(files, function(key, value)
-        {
-            data.append(key, value);
-        });
-
-
-        dataService.uploadProfilePic(data).then(function(){
-
-        })
+    $scope.uploadPic = function() {
+        dataService.uploadProfilePic({ 'baseString': $scope.myCroppedImage }).then(function(resp) {
+                $scope.cropper = false;
+            })
     }
 
-
-
-
-    $scope.showEditForm = function(tabId){
-        if (tabId == '1'){
-            $scope.editProfile2 = false;
-            $scope.editProfile = true;
-            document.getElementById("1").classList.add("active");
-            document.getElementById("2").classList.remove("active");
-        } else if (tabId == '2') {
-            $scope.editProfile2 = true;
-            $scope.editProfile = false;
-            document.getElementById("2").classList.add("active");
-            document.getElementById("1").classList.remove("active");
-            //document.getElementById('2').className += 'active';
+    $scope.showEditForm = function(tabId) {
+        var disabledFields = document.getElementsByClassName('profileInputs');
+        for (var i=0; i<disabledFields.length; i++) {
+            disabledFields[i].disabled = false;
         }
+        // if (tabId == '1') {
+        //     $scope.editProfile2 = false;
+        //     $scope.editProfile = true;
+        //     document.getElementById("1").classList.add("active");
+        //     document.getElementById("2").classList.remove("active");
+        // } else if (tabId == '2') {
+        //     $scope.editProfile2 = true;
+        //     $scope.editProfile = false;
+        //     document.getElementById("2").classList.add("active");
+        //     document.getElementById("1").classList.remove("active");
+        //     //document.getElementById('2').className += 'active';
+        // }
+
     }
+
+    
 
     $scope.mode = 'week';
     $scope.eventSource = createRandomEvents();

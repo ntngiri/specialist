@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>My Specialist</title>
     <base href="/">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="./specialist/node_modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./specialist/build/css/all.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./build/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="/node_modules/ng-tags-input/build/ng-tags-input.min.css">
+    <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
     <!-- <script type="text/javascript" src="/node_modules/angular-route/angular-route.min.js"></script> -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="./node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     
 </head>
-<body ng-app="specialist">
+<body ng-app="specialist" ng-controller="MainCtrl">
 <header>
         <nav class="navbar navbar-default" style="margin-bottom:0px">
             <div class="container">
@@ -21,18 +22,141 @@
                     <a class="navbar-brand" href="./">QuickSpecialist</a>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="javascript:void(0)" ng-click="openLightbox('registrationLightBox');"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="javascript:void(0)" ng-click="openLightbox('loginform');"><span class="glyphicon glyphicon-log-in"></span> {{loginStatusString}}</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="doctorPortal">For Doctors</a></li>
+                    <li><a href="{{::doctorPatientUrl}}">{{::doctorPatient}}</a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <!-- <ng-view></ng-view> -->
     <ui-view></ui-view>
+    <div class="lgtBoxCont" ng-style="lgtStyle"">
+    </div>
+    <div id="registrationLightBox" class="container lightBoxContainer" ng-show="registrationLightBox">
+        <form class="well form-horizontal" id="registration_form" ng-submit="sendSignupUser($event)" novalidate>
+            <fieldset>
+                <legend><center><h2><b>REGISTRATION FORM</b></h2></center></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">First Name</label>  
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  ng-model="firstname" placeholder="First Name" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Last Name</label> 
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input ng-model="lastname" placeholder="Last Name" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Username</label>  
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input  ng-model="username" placeholder="Username" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Password</label> 
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input ng-model="pass" placeholder="Password" class="form-control"  type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Confirm Password</label> 
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input ng-model="confirmpass" placeholder="Confirm Password" class="form-control"  type="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>  
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input ng-model="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Contact No.</label>  
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                            <input ng-model="mobileNo" placeholder="(0120)" class="form-control" type="text">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4"><br>
+                        <a ng-click="closeLightbox()" class="login-button">CANCEL 
+                            <span class="glyphicon"></span>
+                        </a>
+                    </div>
+                    <div class="col-md-4"><br>
+                        <a ng-click="sendSignupUser()" class="login-button">SUBMIT 
+                            <span class="glyphicon glyphicon-send"></span>
+                        </a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div id="loginform" class="container lightBoxContainer" ng-show="loginform">
+        <form class="well form-horizontal" action=" " method="post"  id="login_form">
+            <fieldset>
+                <legend><center><h2><b>LOGIN</b></h2></center></legend><br>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail</label>  
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" >Password</label> 
+                    <div class="col-md-6 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input name="user_password" placeholder="Password" class="form-control"  type="password">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4"><br>
+                        <button type="submit" class="login-button">SIGN IN 
+                            <span class="glyphicon glyphicon-send"></span>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        <div id="loader"></div>
+    </div>
 <footer class="mtb20">
         <div class="container">
             <div class="row">
@@ -68,7 +192,8 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="./specialist/build/js/all.min.js"></script>
+    <script src="/node_modules/ng-tags-input/build/ng-tags-input.min.js"></script>
+    <script type="text/javascript" src="./build/js/all.min.js"></script>
 </body>
 
 </html>

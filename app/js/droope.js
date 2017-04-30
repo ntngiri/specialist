@@ -1,4 +1,4 @@
-angular.module('specialist.tagit', [])
+angular.module('naukri.tagit', [])
     .directive('tagIt', function() {
         return {
             restrict: 'EA',
@@ -14,7 +14,7 @@ angular.module('specialist.tagit', [])
         }
     });
 
-angular.module('specialist.listing', [])
+angular.module('naukri.listing', [])
      .directive('ngRepeatDoneNotification', function() {
         return function(scope, element, attrs) {
 
@@ -52,7 +52,7 @@ angular.module('specialist.listing', [])
             },
           
             //template: '<ul><li ng-repeat="item in data|limitTo:tupleCount" ng-repeat-done-notification={{item.id}} ng-click="checkItem(this)"><input ng-if="multiSelect" type="checkbox" ng-model=item.checked><div style="display:inline-block;" ng-transclude></div></li></ul>',
-            template: '<ul><li ng-repeat="item in data" ng-repeat-done-notification={{item.id}} ng-click="checkItem(this)" ng-class="{active:item.active, notSelectable:item.notSelectable}"><input ng-if="multiSelect == \'true\' && !item.notSelectable" type="checkbox" ng-model=item.checked>{{selectedName}}<div style="display:inline-block; width:auto;" ng-transclude></div></li></ul>',
+            template: '<ul><li ng-repeat="item in data|filter:{name:filterName}|limitTo:tupleCount" ng-repeat-done-notification={{item.id}} ng-click="checkItem(this)" ng-class="{active:item.active, notSelectable:item.notSelectable}"><input ng-if="multiSelect == \'true\' && !item.notSelectable" type="checkbox" ng-model=item.checked>{{selectedName}}<div style="display:inline-block; width:auto;" ng-transclude></div></li></ul>',
 
             link: function(scope, iElement, iAttr, controllers) {
                 scope.firstReapet = 0;
@@ -136,7 +136,7 @@ angular.module('specialist.listing', [])
         }
     });
 
-angular.module('specialist.droope', ['specialist.listing', 'specialist.tagit'])
+angular.module('naukri.droope', ['naukri.listing', 'naukri.tagit'])
 
 .directive('droope', ["$document", function($document) {
     // Runs during compile
@@ -156,14 +156,14 @@ angular.module('specialist.droope', ['specialist.listing', 'specialist.tagit'])
             '<li class="frst" style="float: none;">' +
             '<div class="DDinputWrap">' +
             '<span class="ddIcon srchTxt" ng-click="showDrop()"></span>' +
-            '<input type="text" ng-click="showDrop()" id="" class="srchTxt" autocomplete="off" style="color: rgb(68, 68, 68);" ng-model="selectedName">' +
+            '<input type="text" ng-click="showDrop()" id="" class="srchTxt" ng-placeholder="option.fieldAttr.placeholder" autocomplete="off" style="color: rgb(68, 68, 68);" ng-model="selectedName">' +
             '</div>' +
             '</li>' +
             '</ul>' +
             '</div>' +
-            '<div class="dd_dwn" ng-show="show">' +
+            '<div class="dd_dwn drop" ng-show="show">' +
             '<listing tuplecount="10" multi-select="{{option.multiselect}}" active="activeIndex" selected-id ="selectedId" listing-callback="listingCallback(item)" data="data" filter-name="selectedName">' +
-            '<div><span>{{$parent.item.name}}</span></div>' +
+            '<div><a>{{$parent.item.name}}</a></div>' +
             '</listing>' +
             '</div>' +
             '</div>',
@@ -172,11 +172,13 @@ angular.module('specialist.droope', ['specialist.listing', 'specialist.tagit'])
         compile: function(tElement, tAttrs) {
             var __options__ = {
                 fieldAttr: {
-                    placeholder: 'Enter your Values'
+                    placeholder: 'Enter The Details',
+                    multiselect: 'false'
                 }
 
             };
             return function linking(scope, iElm, iAttrs, controller) {
+
                 scope.activeIndex = 0;
                 //console.log(iElm);
                 //bind keyboard events: arrows up(38) / down(40), enter(13) and tab(9), esc(27)
@@ -205,13 +207,20 @@ angular.module('specialist.droope', ['specialist.listing', 'specialist.tagit'])
                             break;
                         case 40:
                             scope.data[scope.activeIndex].active = false;
+                            console.log(scope.activeIndex);
+                            if(scope.activeIndex != scope.data.length -1){
                             scope.activeIndex++;
                             scope.data[scope.activeIndex].active = true;
+                        }else{
+                            scope.activeIndex = 0;
+                        }
+                        scope.data[scope.activeIndex].active = true;
                             scope.$digest();
                             break;
                     }
                 });
                 scope.options = angular.merge(__options__, scope.option);
+                console.log(scope.options);
                 scope.tags = [];
                 iElm.find('input').attr(scope.options.fieldAttr)
                 /**

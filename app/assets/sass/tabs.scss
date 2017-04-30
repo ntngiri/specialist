@@ -1,0 +1,76 @@
+.tabs-container{
+                width: 100%;
+                z-index: 1;
+                .content{}
+            }
+            .tabs-container ul{
+                margin: 0;
+                background: #c8d0d2;
+            }
+            .tabs-container ul:before{
+                content: "";
+                background: rgba(88,145,175,0.85);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                -moz-transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                transition: all 0.5s;
+            }
+            /*div {
+                transition: all 0.5s ease;
+                background: red;
+                padding: 10px;
+            }
+            div:hover {
+                background: green;
+                padding: 20px;
+            }*/ 
+            .tabs-container  ul li{
+                transition: all 0.5s ease-out;
+                display: inline-block;
+                overflow: hidden;
+                vertical-align: top;
+                border-right: 1px solid rgba(255,255,255,0.5);
+            }
+            .tabs-container ul li:first-child{
+            background: rgba(88,145,175,0.85);
+            width: 25%;
+            }
+            .tabs-container  ul li:hover{
+                background: rgba(88,145,175,0.85); 
+            }
+            .tabs-container  ul li a{
+                padding:14px 20px;
+                display: block;
+                color: #6dc1d8;
+                text-decoration: none;
+                outline: none;
+                color: #fff;
+                text-transform: uppercase;
+                white-space: nowrap;
+                font-weight: 700;
+                font-style: normal;
+            }
+            .tabs-container ul li a:before {
+                content: "";
+                background: #5891af;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                bottom: 0;
+                width: 100%;
+                z-index: -1;
+                -moz-transition: top 0.5s;
+                -webkit-transition: top 0.5s;
+                transition: top 0.5s;
+            }
+            .options-container{
+            background: #ebeeef;
+                .options-title{
+                    padding: 0 40px;
+    margin-bottom: 25px;
+                }
+            }
